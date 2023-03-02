@@ -1,0 +1,24 @@
+1 ALTER TABLE stanowiska ADD wymagane_wyksztalcenie VARCHAR(255);
+2 DESC stanowiska;
+3 UPDATE stanowiska SET wymagane_wyksztalcenie =
+CASE nazwa
+WHEN 'kierownik' THEN 'wyższe'
+WHEN 'asystent' THEN 'wyższe'
+ELSE 'średnie'
+END;
+4 SELECT * FROM stanowiska;
+5 ALTER TABLE stanowiska CHANGE COLUMN wymagane_wyksztalcenie wyksztalcenie varchar(255);
+6 ALTER TABLE pracownicy ADD drugie_imie VARCHAR(255);
+7 SELECT * FROM stanowiska;
+8 CREATE TABLE adresy (
+id_pracownika INT,
+ulica VARCHAR(255),
+nr_domu VARCHAR(10)
+);
+9. DESC adresy;
+10. INSERT INTO adresy (id_pracownika, ulica, nr_domu)
+VALUES (1, 'ul. Kolorowa', '10A'), (2, 'ul. Kwiatowa', '22');
+11. SELECT * FROM adresy;
+12.a)ALTER TABLE adresy DROP COLUMN nr_mieszkania;
+b)ALTER TABLE adresy RENAME TO dane_adresowe;
+c)DROP TABLE dane_adresowe;
